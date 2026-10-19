@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>키오스크 관리</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div id="login" class="login" hidden>
+    <form id="login-form" class="login-card">
+      <h1>키오스크 관리</h1>
+      <p class="muted">관리자 비밀번호를 입력하세요.</p>
+      <input type="password" name="password" placeholder="비밀번호" autocomplete="current-password" required autofocus />
+      <button class="btn primary" type="submit">로그인</button>
+      <p id="login-error" class="error"></p>
+    </form>
+  </div>
+
+  <div id="app" class="app" hidden>
+    <aside class="sidebar">
+      <div class="logo">Kiosk<span>CMS</span></div>
+      <nav id="nav">
+        <a href="#/kiosks" data-route="kiosks" data-label="키오스크">키오스크</a>
+        <a href="#/playlists" data-route="playlists" data-label="재생목록">재생목록</a>
+        <a href="#/media" data-route="media" data-label="미디어 라이브러리">미디어 라이브러리</a>
+        <a href="#/buildings" data-route="buildings" data-label="시설 관리">시설 관리</a>
+        <a href="#/notices" data-route="notices" data-label="공지">공지</a>
+      </nav>
+      <button id="logout" class="btn ghost small">로그아웃</button>
+    </aside>
+    <main id="view" class="view"></main>
+  </div>
+
+  <dialog id="modal" class="modal"></dialog>
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="admin.js" type="module"></script>
+</body>
+</html>

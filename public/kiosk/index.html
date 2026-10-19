@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>건물 안내</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="/kiosk-assets/kiosk.css" />
+</head>
+<body>
+  <div id="signage" class="layer">
+    <div id="stage"></div>
+    <div id="signage-hint" hidden>화면을 터치하면 <b>층별 안내</b>를 볼 수 있습니다<small lang="en">Touch the screen for the floor guide</small></div>
+  </div>
+
+  <div id="directory" class="layer" hidden>
+    <header class="dir-header">
+      <div id="clock" class="clock"></div>
+      <button id="btn-lang" class="ghost-btn" lang="en">English</button>
+      <button id="btn-large" class="ghost-btn" aria-pressed="false">가<small>가</small> 큰 글씨</button>
+      <button id="btn-home" class="ghost-btn">홍보 화면</button>
+    </header>
+
+    <div id="building-tabs" class="tabs"></div>
+    <nav id="floor-list" class="floor-row" aria-label="층 선택"></nav>
+
+    <main class="dir-main">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 0 1 6.32 12.9l5.39 5.4-1.42 1.4-5.39-5.38A8 8 0 1 1 10 2zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12z"/></svg>
+        <!-- inputmode=none: 운영체제 화상 키보드 대신 아래 자체 키보드를 쓴다(물리 키보드 입력은 그대로 가능) -->
+        <input id="search" type="search" inputmode="none" placeholder="시설명·호실·키워드 검색 (초성 가능)" autocomplete="off" />
+        <button id="search-clear" class="icon-btn" hidden aria-label="검색어 지우기">✕</button>
+      </div>
+      <div id="category-chips" class="chips"></div>
+
+      <section class="floor-view">
+        <div class="floor-head">
+          <h2 id="floor-name"></h2>
+          <p id="floor-desc" class="muted"></p>
+        </div>
+        <div id="map-wrap" class="map-wrap" hidden>
+          <div id="map" class="map"></div>
+        </div>
+        <!-- 검색·분류 결과, 또는 도면이 없는 층의 시설 목록 -->
+        <div id="facility-list" class="facility-list" hidden></div>
+      </section>
+    </main>
+
+    <!-- 검색창을 누르면 평면도 아래(화면 하단)에 열리는 두벌식 화상 키보드 -->
+    <div id="keypad" class="keypad" hidden></div>
+  </div>
+
+  <div id="detail" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true">
+      <button class="modal-close icon-btn" aria-label="닫기">✕</button>
+      <div id="detail-body"></div>
+    </div>
+  </div>
+
+  <div id="ticker" class="ticker" hidden><div class="ticker-label">공지</div><div class="ticker-track"><span id="ticker-text"></span></div></div>
+
+  <div id="overlay-msg" class="overlay-msg" hidden></div>
+
+  <script src="/kiosk-assets/kiosk.js" type="module"></script>
+</body>
+</html>

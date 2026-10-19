@@ -1,0 +1,21 @@
+{
+  "name": "sejong-kiosk-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "다중 키오스크 중앙관리 CMS (광고/홍보 사이니지 + 건물 동별 층별안내)",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --env-file-if-exists=.env --watch server/index.js",
+    "seed": "node server/seed.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^4.22.3",
+    "multer": "^2.4.0"
+  }
+}
